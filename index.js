@@ -16,6 +16,11 @@ connectDB();
 // Routes
 app.use('/api/test-details', testRoutes);
 
+
+app.get('/', (req, res) => {
+    res.send('<h1>Welcome to the Test API to get the details of the test</h1><p>Use the /api/test-details endpoint to get test details.</p>');
+});
+
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
