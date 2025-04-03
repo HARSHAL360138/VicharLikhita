@@ -30,6 +30,71 @@
 
 
 
+const express = require('express');
+const cors = require('cors');
+require('dotenv').config();
+const connectDB = require('./config/db');
+const formRoutes = require('./routes/formRoutes');
+const testRoutes = require('./routes/testRoutes');
+const errorHandler = require('./middleware/errorHandler');
+
+const app = express();
+const port = process.env.PORT || 3000;
+
+// Middleware
+app.use(express.json());
+app.use(cors());
+
+// Connect to Database
+connectDB();
+
+// Routes
+app.use('/api', formRoutes);
+app.use('/api/test-details', testRoutes);
+
+
+// Root Route
+app.get('/', (req, res) => {
+    res.send('<h1>Welcome to the Form API</h1>');
+});
+
+// Error Handling Middleware
+app.use(errorHandler);
+
+// Start Server
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -145,41 +210,6 @@
 //     console.log(`Server is running on port ${port}`);
 // });
 
-
-
-
-const express = require('express');
-const cors = require('cors');
-require('dotenv').config();
-const connectDB = require('./config/db');
-const formRoutes = require('./routes/formRoutes');
-const errorHandler = require('./middleware/errorHandler');
-
-const app = express();
-const port = process.env.PORT || 3000;
-
-// Middleware
-app.use(express.json());
-app.use(cors());
-
-// Connect to Database
-connectDB();
-
-// Routes
-app.use('/api', formRoutes);
-
-// Root Route
-app.get('/', (req, res) => {
-    res.send('<h1>Welcome to the Form API</h1>');
-});
-
-// Error Handling Middleware
-app.use(errorHandler);
-
-// Start Server
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-});
 
 
 
