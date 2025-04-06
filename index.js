@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const formRoutes = require("./routes/formRoutes");
 const testRoutes = require("./routes/testRoutes");
 const applicationRoutes = require("./routes/applicationRoutes");
+const authRoutes = require("./routes/authRoutes");
 const errorHandler = require("./middleware/errorHandler");
 
 const app = express();
@@ -20,6 +21,8 @@ connectDB();
 app.use("/api", formRoutes);
 app.use("/api/test-details", testRoutes);
 app.use("/api", applicationRoutes);
+app.use("/api/auth", authRoutes);
+
 
 app.get("/", (req, res) => {
   res.send("<h1>Welcome to the Form API</h1>");
