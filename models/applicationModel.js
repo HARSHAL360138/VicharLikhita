@@ -5,7 +5,7 @@ const applicationSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true, match: /^\S+@\S+\.\S+$/ },
   phone: { type: String, required: true, match: /^\d{10}$/ },
   dob: { type: Date, required: true },
-  course: { type: String, required: true, enum: ["Web Development", "Data Science", "Cyber Security"] },
+  course: { type: String, required: true, enum: ["I/VIII (CBSE/State Board)", "IX/X (CBSE/State Board)", "XI/XII Science", "XI/XII Commerce", "XI/XII Arts","B.Com (All Semesters)","BBA/BCCA (All Semesters)","MS-Office","Tally ERP","Abacus"] },
   batchTiming: { type: String, required: true, enum: ["Morning", "Afternoon", "Evening"] },
   learningMode: { type: String, required: true, enum: ["Online", "Offline"] },
   submittedAt: { type: Date, default: Date.now },
