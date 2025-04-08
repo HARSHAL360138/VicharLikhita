@@ -67,7 +67,7 @@ const deleteApplication = async (req, res) => {
 // Get Dropdown Options
 const getDropdownOptions = (req, res) => {
   res.status(200).json({
-    courses: ["Web Development", "Data Science", "Cyber Security"],
+    courses: ["Web Development", "Data Science", "Cyber Security", "Machine Learning"],
     batchTimings: ["Morning", "Afternoon", "Evening"],
     learningModes: ["Online", "Offline"],
   });
